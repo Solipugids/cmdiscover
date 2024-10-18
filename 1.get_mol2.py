@@ -25,12 +25,12 @@ service = Service(ChromeDriverManager().install())
 driver = webdriver.Chrome(chrome_options, service)
 
 # 读取URL
-with open('./address', 'r') as file:
+with open('./link_db', 'r') as file:
     urls = file.read().splitlines()
 
 # 保存的文件夹
 output_directory = './test'
-
+os.makedirs(output_directory, exist_ok=True)
 
 def find_mol2_links():
     # XPath查找
